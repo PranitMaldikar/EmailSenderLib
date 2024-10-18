@@ -1,0 +1,727 @@
+2024-10-17 13:56:39.680 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 13:56:39.703 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 13:56:39.706 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 13:56:39.708 -04:00 [INF] Hosting environment: Development
+2024-10-17 13:56:39.709 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 13:56:40.709 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 13:56:41.579 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 875.317ms
+2024-10-17 13:56:41.611 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 13:56:41.615 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 13:56:41.628 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 16.8637ms
+2024-10-17 13:56:41.756 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 141.6878ms
+2024-10-17 13:56:41.893 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 13:56:42.089 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 196.6149ms
+2024-10-17 13:58:34.586 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 13:58:34.596 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 13:58:34.626 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 13:58:35.246 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 13:58:37.338 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 13:58:41.352 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 13:58:41.360 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 13:58:41.402 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6770.3923ms
+2024-10-17 13:58:41.406 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 13:58:41.410 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 13:58:41.439 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6853.1872ms
+2024-10-17 14:07:15.315 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:07:15.334 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:07:15.336 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:07:15.338 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:07:15.340 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:07:16.205 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:07:16.452 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 252.0731ms
+2024-10-17 14:07:16.477 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:07:16.487 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:07:16.487 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 9.7916ms
+2024-10-17 14:07:16.531 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.1405ms
+2024-10-17 14:07:16.837 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:07:17.028 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 191.4448ms
+2024-10-17 14:07:37.404 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:07:37.417 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:07:37.451 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:07:37.640 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:07:39.720 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:07:43.733 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:07:43.741 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:07:43.779 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6322.5639ms
+2024-10-17 14:07:43.783 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:07:43.789 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at MimeKit.MailboxAddress..ctor(Encoding encoding, String name, String address)
+   at MimeKit.MailboxAddress..ctor(String name, String address)
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 70
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 14:07:43.823 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6419.4786ms
+2024-10-17 14:16:05.270 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:16:05.949 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:16:24.282 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:16:24.286 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:16:24.287 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:16:24.289 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:16:24.466 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 18520.184ms
+2024-10-17 14:16:24.499 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:16:24.507 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:16:24.510 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 11.8346ms
+2024-10-17 14:16:24.547 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.5877ms
+2024-10-17 14:16:24.789 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:16:24.914 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.7028ms
+2024-10-17 14:16:45.708 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:16:45.716 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:16:45.739 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:16:45.814 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:16:45.855 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:16:47.901 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:16:47.917 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:16:51.919 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:16:51.932 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:16:51.937 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:16:51.971 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6225.7116ms
+2024-10-17 14:16:51.974 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:16:51.979 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 14:16:52.010 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6303.0651ms
+2024-10-17 14:19:38.833 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:19:38.849 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:19:38.852 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:19:38.854 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:19:38.855 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:19:39.608 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:19:39.800 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 194.7185ms
+2024-10-17 14:19:39.816 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:19:39.821 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:19:39.826 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 9.9649ms
+2024-10-17 14:19:39.873 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.6172ms
+2024-10-17 14:19:40.030 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:19:40.167 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 137.9047ms
+2024-10-17 14:19:58.064 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:19:58.073 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:19:58.101 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:19:58.185 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:19:58.231 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:20:00.271 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:20:00.289 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:20:04.295 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:20:04.308 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:20:04.312 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:20:04.342 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:20:04.360 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:20:04.368 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6261.1235ms
+2024-10-17 14:20:04.374 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:20:04.376 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6312.3235ms
+2024-10-17 14:21:28.544 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:21:28.565 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:21:28.568 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:21:28.570 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:21:28.571 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:21:29.249 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:21:29.436 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 191.9169ms
+2024-10-17 14:21:29.453 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:21:29.460 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:21:29.463 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 9.1867ms
+2024-10-17 14:21:29.505 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.0065ms
+2024-10-17 14:21:29.652 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:21:29.820 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 168.1975ms
+2024-10-17 14:21:39.721 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:21:39.731 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:21:39.752 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:21:39.832 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:21:39.872 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:21:41.909 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:21:41.925 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:21:45.935 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:21:45.949 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:21:45.953 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:21:45.981 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:21:45.989 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:21:45.997 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6239.0299ms
+2024-10-17 14:21:45.998 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:21:46.004 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6283.1181ms
+2024-10-17 14:24:12.284 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:24:12.303 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:24:12.305 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:24:12.306 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:24:12.309 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:24:12.920 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:24:13.105 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 189.2997ms
+2024-10-17 14:24:13.135 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:24:13.135 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:24:13.151 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 15.6599ms
+2024-10-17 14:24:13.197 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.3035ms
+2024-10-17 14:24:13.335 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:24:13.494 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 159.0739ms
+2024-10-17 14:24:43.580 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:24:43.591 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:24:43.617 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:24:43.697 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:24:43.738 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:24:45.779 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:24:45.796 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:24:49.799 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:24:49.814 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:24:49.817 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:24:49.844 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:24:49.856 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:24:49.863 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6239.0989ms
+2024-10-17 14:24:49.868 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:24:49.871 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6290.9916ms
+2024-10-17 14:28:03.508 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:28:03.524 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:28:03.527 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:28:03.528 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:28:03.530 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:28:04.138 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:28:04.327 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 191.8916ms
+2024-10-17 14:28:04.345 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:28:04.354 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:28:04.362 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 16.9895ms
+2024-10-17 14:28:04.407 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.3019ms
+2024-10-17 14:28:04.548 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:28:04.711 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 163.8084ms
+2024-10-17 14:28:23.723 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:28:23.733 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:28:23.753 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:28:23.835 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:28:23.877 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:28:25.911 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:28:25.927 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:28:29.935 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:28:29.946 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:28:29.950 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:28:29.975 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:28:29.987 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:28:29.994 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6232.4373ms
+2024-10-17 14:28:29.996 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:28:30.003 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6280.4808ms
+2024-10-17 14:29:04.386 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:29:05.149 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:29:19.525 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:29:19.527 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:29:19.528 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:29:19.536 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:29:19.705 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 14560.4227ms
+2024-10-17 14:29:19.729 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:29:19.735 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:29:19.744 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 15.8693ms
+2024-10-17 14:29:19.792 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.7499ms
+2024-10-17 14:29:19.935 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:29:20.084 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 151.8908ms
+2024-10-17 14:29:29.145 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:29:29.156 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:29:29.182 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:29:29.262 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:29:29.304 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:29:31.339 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:29:31.356 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:29:35.363 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 14:29:35.375 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 14:29:35.382 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:29:35.413 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:29:35.426 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:29:35.432 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6243.056ms
+2024-10-17 14:29:35.434 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:29:35.436 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6290.6691ms
+2024-10-17 14:50:33.806 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:50:33.828 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:50:33.831 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:50:33.832 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:50:33.833 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:50:34.809 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:50:35.061 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 258.4029ms
+2024-10-17 14:50:35.107 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:50:35.111 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:50:35.153 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 45.4654ms
+2024-10-17 14:50:35.297 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 186.2359ms
+2024-10-17 14:50:35.432 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:50:35.683 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 251.7573ms
+2024-10-17 14:50:53.633 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:50:53.644 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:50:53.676 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:50:53.815 -04:00 [ERR] SMTP configuration is incomplete
+2024-10-17 14:50:53.913 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: SMTP configuration is incomplete
+System.InvalidOperationException: SMTP configuration is incomplete
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 115
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 43
+2024-10-17 14:50:55.979 -04:00 [ERR] SMTP configuration is incomplete
+2024-10-17 14:50:56.012 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: SMTP configuration is incomplete
+System.InvalidOperationException: SMTP configuration is incomplete
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 115
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 43
+2024-10-17 14:51:00.019 -04:00 [ERR] SMTP configuration is incomplete
+2024-10-17 14:51:00.045 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: SMTP configuration is incomplete
+System.InvalidOperationException: SMTP configuration is incomplete
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 115
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 43
+2024-10-17 14:51:00.048 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 14:51:00.078 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: SMTP configuration is incomplete
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 115
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 43
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 14:51:00.087 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 14:51:00.093 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6409.8366ms
+2024-10-17 14:51:00.099 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:51:00.100 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6467.5842ms
+2024-10-17 14:54:24.492 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 14:54:24.510 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 14:54:24.512 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 14:54:24.514 -04:00 [INF] Hosting environment: Development
+2024-10-17 14:54:24.515 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 14:54:25.059 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 14:54:25.240 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 185.2414ms
+2024-10-17 14:54:25.261 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 14:54:25.272 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 14:54:25.288 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 27.651ms
+2024-10-17 14:54:25.348 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.71ms
+2024-10-17 14:54:25.505 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 14:54:25.682 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 177.2707ms
+2024-10-17 14:54:59.039 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 104
+2024-10-17 14:54:59.048 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:54:59.070 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 14:55:00.511 -04:00 [INF] Email sent to pranitmaldikar@gmail.com at "2024-10-17T18:55:00.5116342Z"
+2024-10-17 14:55:00.515 -04:00 [INF] Email sent successfully to pranitmaldikar@gmail.com
+2024-10-17 14:55:00.520 -04:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-10-17 14:55:00.527 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 1451.0444ms
+2024-10-17 14:55:00.529 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 14:55:00.532 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 200 null text/plain; charset=utf-8 1492.6988ms
+2024-10-17 16:39:29.983 -04:00 [INF] Application is shutting down...
+2024-10-17 16:43:27.806 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 16:43:27.828 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 16:43:27.831 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 16:43:27.833 -04:00 [INF] Hosting environment: Development
+2024-10-17 16:43:27.834 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 16:43:28.737 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 16:43:28.959 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 226.5309ms
+2024-10-17 16:43:28.995 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 16:43:28.995 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 16:43:29.016 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 21.3434ms
+2024-10-17 16:43:29.076 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.7154ms
+2024-10-17 16:43:29.223 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 16:43:29.395 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 172.5099ms
+2024-10-17 16:45:05.298 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 105
+2024-10-17 16:45:05.308 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:45:05.342 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 16:45:05.745 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:45:05.814 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 16:45:07.884 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:45:07.900 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 16:45:11.908 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:45:11.919 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+2024-10-17 16:45:11.922 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 16:45:11.950 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 77
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 39
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body) in C:\Users\prani\source\repos\EmailSenderLib\EmailSender.cs:line 59
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 16:45:11.967 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 16:45:11.973 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6625.5284ms
+2024-10-17 16:45:11.975 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:45:11.977 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6679.035ms
+2024-10-17 16:45:56.418 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 16:45:56.441 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 23.129ms
+2024-10-17 16:45:56.504 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 16:45:56.516 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 16:45:56.530 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 16.2089ms
+2024-10-17 16:45:56.547 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.3505ms
+2024-10-17 16:45:56.788 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 16:45:56.815 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.6873ms
+2024-10-17 16:46:06.800 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 105
+2024-10-17 16:46:06.804 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:46:06.810 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 16:46:08.045 -04:00 [ERR] Failed to connect to SMTP server
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156f8a942sm7632885a.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156f8a942sm7632885a.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+2024-10-17 16:46:08.118 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Failed to connect to SMTP server
+System.InvalidOperationException: Failed to connect to SMTP server
+ ---> MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156f8a942sm7632885a.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156f8a942sm7632885a.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   --- End of inner exception stack trace ---
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:46:10.719 -04:00 [ERR] Failed to connect to SMTP server
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156fef217sm7056485a.111 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156fef217sm7056485a.111 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+2024-10-17 16:46:10.787 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Failed to connect to SMTP server
+System.InvalidOperationException: Failed to connect to SMTP server
+ ---> MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156fef217sm7056485a.111 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-7b156fef217sm7056485a.111 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   --- End of inner exception stack trace ---
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:46:15.392 -04:00 [ERR] Failed to connect to SMTP server
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+2024-10-17 16:46:15.461 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Failed to connect to SMTP server
+System.InvalidOperationException: Failed to connect to SMTP server
+ ---> MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   --- End of inner exception stack trace ---
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:46:15.472 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 16:46:15.542 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Failed to connect to SMTP server
+ ---> MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-6cde111b4c0sm380986d6.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   --- End of inner exception stack trace ---
+   at EmailSender.ConnectSmtpClientAsync(SmtpClient client)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+   at EmailController.SendEmail(EmailRequest emailRequest) in C:\Users\prani\source\repos\EmailSenderAPI\Controllers\EmailController.cs:line 30
+2024-10-17 16:46:15.556 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 16:46:15.561 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 8745.197ms
+2024-10-17 16:46:15.564 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:46:15.567 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 8767.2429ms
+2024-10-17 16:46:55.460 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 16:46:55.485 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 24.6405ms
+2024-10-17 16:46:55.552 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 16:46:55.559 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 6.9572ms
+2024-10-17 16:46:55.569 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 16:46:55.612 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.5004ms
+2024-10-17 16:46:55.967 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 16:46:55.980 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.6551ms
+2024-10-17 16:47:13.888 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 105
+2024-10-17 16:47:13.892 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:47:13.898 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 16:47:14.996 -04:00 [INF] Email sent to pranitmaldikar@gmail.com at "2024-10-17T20:47:14.9960353Z"
+2024-10-17 16:47:14.999 -04:00 [INF] Email sent successfully to pranitmaldikar@gmail.com
+2024-10-17 16:47:15.000 -04:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-10-17 16:47:15.002 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 1099.6115ms
+2024-10-17 16:47:15.004 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:47:15.006 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 200 null text/plain; charset=utf-8 1119.005ms
+2024-10-17 16:53:35.642 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 16:53:35.662 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 200 null text/html;charset=utf-8 20.4927ms
+2024-10-17 16:53:35.720 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 16:53:35.725 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 5.6484ms
+2024-10-17 16:53:35.730 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 16:53:35.754 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.3931ms
+2024-10-17 16:53:36.062 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - null null
+2024-10-17 16:53:36.070 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.6634ms
+2024-10-17 16:53:50.282 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7144/api/Email/send - application/json 105
+2024-10-17 16:53:50.285 -04:00 [INF] Executing endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:53:50.292 -04:00 [INF] Route matched with {action = "SendEmail", controller = "Email"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendEmail(EmailRequest) on controller EmailController (EmailSenderAPI).
+2024-10-17 16:53:50.298 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:53:50.331 -04:00 [ERR] Attempt 1: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:53:52.367 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:53:52.387 -04:00 [ERR] Attempt 2: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:53:56.395 -04:00 [ERR] FromName or FromEmail is missing in the configuration
+2024-10-17 16:53:56.413 -04:00 [ERR] Attempt 3: Failed to send email to pranitmaldikar@gmail.com. Error: Sender email configuration is invalid
+System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+2024-10-17 16:53:56.418 -04:00 [ERR] Max retry limit reached. Email not sent to pranitmaldikar@gmail.com
+2024-10-17 16:53:56.453 -04:00 [ERR] Error occurred while sending email to pranitmaldikar@gmail.com
+System.ApplicationException: Failed to send email after 3 attempts
+ ---> System.InvalidOperationException: Sender email configuration is invalid
+   at EmailSender.CreateEmailMessage(String to, String subject, String body)
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+   --- End of inner exception stack trace ---
+   at EmailSender.SendEmailAsync(String to, String subject, String body)
+   at EmailController.SendEmail(EmailRequest emailRequest)
+2024-10-17 16:53:56.460 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-17 16:53:56.462 -04:00 [INF] Executed action EmailController.SendEmail (EmailSenderAPI) in 6166.1796ms
+2024-10-17 16:53:56.465 -04:00 [INF] Executed endpoint 'EmailController.SendEmail (EmailSenderAPI)'
+2024-10-17 16:53:56.466 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7144/api/Email/send - 500 null text/plain; charset=utf-8 6184.4926ms
+2024-10-17 17:05:54.933 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 17:05:54.954 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 17:05:54.956 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 17:05:54.958 -04:00 [INF] Hosting environment: Development
+2024-10-17 17:05:54.959 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 17:05:57.014 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 17:05:57.266 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:05:57.395 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 500 null text/html; charset=utf-8 394.2768ms
+2024-10-17 17:05:57.437 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 17:05:57.437 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 17:05:57.553 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 115.5833ms
+2024-10-17 17:05:57.820 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 383.1533ms
+2024-10-17 17:05:58.340 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/favicon.ico - null null
+2024-10-17 17:05:58.347 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:05:58.360 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/favicon.ico - 500 null text/plain; charset=utf-8 22.1621ms
+2024-10-17 17:06:39.929 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 17:06:39.947 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:06:39.961 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 500 null text/html; charset=utf-8 32.6581ms
+2024-10-17 17:06:40.022 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 17:06:40.036 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 17:06:40.054 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 24.2406ms
+2024-10-17 17:06:40.063 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.2798ms
+2024-10-17 17:06:40.171 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/favicon.ico - null null
+2024-10-17 17:06:40.189 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:06:40.207 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/favicon.ico - 500 null text/plain; charset=utf-8 36.4779ms
+2024-10-17 17:06:49.500 -04:00 [INF] Now listening on: https://localhost:7144
+2024-10-17 17:06:49.518 -04:00 [INF] Now listening on: http://localhost:5196
+2024-10-17 17:06:49.521 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-17 17:06:49.522 -04:00 [INF] Hosting environment: Development
+2024-10-17 17:06:49.523 -04:00 [INF] Content root path: C:\Users\prani\source\repos\EmailSenderAPI
+2024-10-17 17:06:50.437 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/swagger/index.html - null null
+2024-10-17 17:06:50.557 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:06:50.649 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/swagger/index.html - 500 null text/html; charset=utf-8 217.9074ms
+2024-10-17 17:06:50.671 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-17 17:06:50.671 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/_vs/browserLink - null null
+2024-10-17 17:06:50.679 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 8.4145ms
+2024-10-17 17:06:50.718 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.3625ms
+2024-10-17 17:06:51.186 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7144/favicon.ico - null null
+2024-10-17 17:06:51.193 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-17 17:06:51.198 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7144/favicon.ico - 500 null text/plain; charset=utf-8 12.4576ms

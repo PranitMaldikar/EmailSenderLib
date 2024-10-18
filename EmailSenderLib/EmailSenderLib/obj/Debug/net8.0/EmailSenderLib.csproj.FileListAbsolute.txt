@@ -1,0 +1,12 @@
+C:\Users\prani\source\repos\EmailSenderLib\bin\Debug\net8.0\EmailSenderLib.deps.json
+C:\Users\prani\source\repos\EmailSenderLib\bin\Debug\net8.0\EmailSenderLib.dll
+C:\Users\prani\source\repos\EmailSenderLib\bin\Debug\net8.0\EmailSenderLib.pdb
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.csproj.AssemblyReference.cache
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.AssemblyInfoInputs.cache
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.AssemblyInfo.cs
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.csproj.CoreCompileInputs.cache
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.dll
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\refint\EmailSenderLib.dll
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\EmailSenderLib.pdb
+C:\Users\prani\source\repos\EmailSenderLib\obj\Debug\net8.0\ref\EmailSenderLib.dll
